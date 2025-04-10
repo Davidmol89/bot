@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true, // Indica que es un standalone component
-  imports: [CommonModule], // Agrega CommonModule para usar *ngIf
+  imports: [CommonModule], // Agrega CommonModule para usar 
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
