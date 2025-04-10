@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  firebaseConfig: {
+  firebase: {
     apiKey: "AIzaSyBrF6fXa9mhglBDdDWJVj22UgcIJqCIh5k",
     authDomain: "chatbot-a4032.firebaseapp.com",
     projectId: "chatbot-a4032",

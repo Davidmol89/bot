@@ -8,8 +8,12 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit(): void {
+    // Inicialización del componente
+  }
 
   signInWithGoogle() {
     this.authService.signInWithGoogle();

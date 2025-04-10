@@ -1,66 +1,62 @@
 <!-- component -->
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<div
-  class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+<div class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 relative">
+  <!-- Botón de retroceso -->
+  <button (click)="goBack()" class="absolute top-4 left-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+  </button>
 
-</div>
-<div class="relative   min-h-screen  sm:flex sm:flex-row  justify-center bg-transparent rounded-3xl shadow-xl">
-  <div class="flex-col flex  self-center lg:px-24 sm:max-w-4xl xl:max-w-md  z-10">
-    <div class="self-start hidden lg:flex flex-col text-gray-300 -translate-x-10">
-      <img src="/assets/logo.png" alt="Logo" class="logo">
-    </div>
-  </div>
-  <div class="flex justify-center self-center  z-10 shadow-lg">
-    <div class="p-12 bg-white mx-auto rounded-3xl w-96 ">
-      <div class="mb-7">
-        <h3 class="font-semibold text-2xl text-gray-800">Sign In </h3>
-        <p class="text-gray-400">Inicia sesión con Google</p>
+  <div class="container mx-auto px-4 py-16 sm:py-24">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+      <!-- Logo y texto -->
+      <div class="hidden lg:flex flex-col items-center text-center lg:text-left lg:items-start lg:max-w-md">
+        <img src="/assets/logo.png" alt="Logo" class="w-64 h-32 mb-4">
+        <h1 class="text-4xl font-bold text-white mb-4">ChatBot SaberPro</h1>
+        <p class="text-gray-300 text-lg">Mejora tus habilidades con nuestra plataforma de aprendizaje interactivo</p>
       </div>
-      <div class="space-y-6">
-        <div class="flex items-center justify-center space-x-2 my-5">
-          <span class="h-px w-16 bg-gray-100"></span>
+
+      <!-- Formulario de login -->
+      <div class="w-full max-w-md">
+        <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-12">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Iniciar Sesión</h2>
+            <p class="text-gray-500">Continúa con tu cuenta de Google</p>
+          </div>
+
+          <div class="space-y-6">
+            <button (click)="signInWithGoogle()" 
+              class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
+                <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
+                <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
+                <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
+              </svg>
+              <span class="text-gray-700 font-medium">Continuar con Google</span>
+            </button>
+          </div>
         </div>
-        <div class="flex justify-center gap-5 w-full ">
-          <button type="submit" (click)="signInWithGoogle()"
-            class="w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-gray-900 text-sm text-gray-500 p-3  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-500">
-            <svg class="w-4 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#EA4335"
-                d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z" />
-              <path fill="#34A853"
-                d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z" />
-              <path fill="#4A90E2"
-                d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z" />
-              <path fill="#FBBC05"
-                d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z" />
-            </svg>
-            <!-- <svg class="w-4" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 13.9v-3.72h9.36c.14.63.25 1.22.25 2.05 0 5.71-3.83 9.77-9.6 9.77-5.52 0-10-4.48-10-10S6.48 2 12 2c2.7 0 4.96.99 6.69 2.61l-2.84 2.76c-.72-.68-1.98-1.48-3.85-1.48-3.31 0-6.01 2.75-6.01 6.12s2.7 6.12 6.01 6.12c3.83 0 5.24-2.65 5.5-4.22h-5.51v-.01Z"></path></svg> -->
-            <span>Google</span>
-          </button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Footer -->
+  <footer class="absolute bottom-0 w-full py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between">
+        <div class="flex items-center gap-2 mb-4 sm:mb-0">
+          <img src="assets/logoini.webp" alt="Logo" class="w-8 h-8 rounded-full">
+          <span class="text-white text-lg">ChatBot<strong>SaberPro</strong></span>
         </div>
-      </div>
-      <div class="mt-7 text-center text-gray-300 text-xs">
-        <span>
-          Copyright © 2024-2025
-          <a rel="" target="_blank" title="Codepen aji"
-            class="text-purple-500 hover:text-purple-600 ">ChatBot SaberPro</a></span>
+        <p class="text-gray-400 text-sm">
+          © 2024 ChatBot SaberPro. Todos los derechos reservados.
+        </p>
       </div>
     </div>
-  </div>
+  </footer>
 </div>
-<footer class="bg-transparent absolute w-full bottom-0 left-0 z-30">
-  <div class="container p-5 mx-auto  flex items-center justify-between ">
-    <div class="flex mr-auto">
-      <a  target="_blank" title="codepen aji"
-        class="text-center text-gray-700 focus:outline-none"><img
-        src="assets/logoini.webp"  alt="aji"
-          class="object-cover mx-auto w-8 h-8 rounded-full w-10 h-10">
-        <p class="text-xl">ChatBot<strong>SaberPro</strong></p>
-      </a>
-    </div>
-
-  </div>
-</footer>
 
 <svg class="absolute bottom-0 left-0 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
   <path fill="#fff" fill-opacity="1"
